@@ -1,6 +1,7 @@
 <?php
 
 	function redirect_to($new_location) {
+	  flush();
 	  header("Location: " . $new_location);
 	  exit;
 	}
@@ -406,4 +407,3 @@
 	}
 
 ?>
-

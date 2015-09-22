@@ -2,13 +2,10 @@
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_functions.php"); ?>
-
 <?php
 $username = "";
-
 if (isset($_POST['submit'])) {
   // Process the form
-  
   // validations
   $required_fields = array("username", "password");
   validate_presences($required_fields);
@@ -26,6 +23,7 @@ if (isset($_POST['submit'])) {
 			// Mark user as logged in
 			$_SESSION["admin_id"] = $found_admin["id"];
 			$_SESSION["username"] = $found_admin["username"];
+
       redirect_to("admin.php");
     } else {
       // Failure
@@ -63,7 +61,7 @@ if (isset($_POST['submit'])) {
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="index.php"><b>Admin</b>LTE</a>
+        <a href="index.php"><b>TLC</b>ode</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <?php echo message(); ?>
@@ -82,7 +80,7 @@ if (isset($_POST['submit'])) {
             <div class="col-xs-8">
             </div><!-- /.col -->
             <div class="col-xs-4">
-              <button type="submit" name="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              <input type="submit" name="submit" class="btn btn-primary btn-block btn-flat" value="Sign In">
             </div><!-- /.col -->
           </div>
         </form>
@@ -90,16 +88,10 @@ if (isset($_POST['submit'])) {
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
-
-    <!-- jQuery 2.1.4 -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
-<?php
-  // 5. Close database connection
-  if (isset($connection)) {
-    mysqli_close($connection);
-  }
-?>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/test.js"></script>
+<?php include("../includes/layouts/footer.php"); ?>
