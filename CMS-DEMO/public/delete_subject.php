@@ -2,6 +2,7 @@
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php confirm_logged_in(); ?>
+
 <?php
 	$current_subject = find_subject_by_id($_GET["subject"], false);
 	if (!$current_subject) {
@@ -28,5 +29,6 @@
 		// Failure
 		$_SESSION["message"] = "Subject deletion failed.";
 		redirect_to("manage_content.php?subject={$id}");
-	}	
+	}
+	
 ?>

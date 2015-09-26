@@ -2,9 +2,8 @@
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php confirm_logged_in(); ?>
+
 <?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', TRUE);
   $admin = find_admin_by_id($_GET["id"]);
   if (!$admin) {
     // admin ID was missing or invalid or 

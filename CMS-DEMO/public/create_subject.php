@@ -3,6 +3,7 @@
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_functions.php"); ?>
 <?php confirm_logged_in(); ?>
+
 <?php
 if (isset($_POST['submit'])) {
 	// Process the form
@@ -39,11 +40,15 @@ if (isset($_POST['submit'])) {
 		$_SESSION["message"] = "Subject creation failed.";
 		redirect_to("new_subject.php");
 	}
+	
 } else {
 	// This is probably a GET request
 	redirect_to("new_subject.php");
 }
+
 ?>
+
+
 <?php
 	if (isset($connection)) { mysqli_close($connection); }
 ?>
