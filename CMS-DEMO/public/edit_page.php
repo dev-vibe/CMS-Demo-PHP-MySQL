@@ -3,7 +3,7 @@
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_functions.php"); ?>
 <?php confirm_logged_in(); ?>
-<?php find_selected_page(true); ?>
+<?php find_selected_page(); ?>
 <?php
   // Unlike new_page.php, we don't need a subject_id to be sent
   // We already have it stored in pages.subject_id.
@@ -41,11 +41,11 @@ if (isset($_POST['submit'])) {
 
     if ($result && mysqli_affected_rows($connection) == 1) {
       // Success
-      $_SESSION["message"] = "Page updated.";
-      redirect_to("manage_content.php?page={$id}");
+      $_SESSION["success"] = "Page updated.";
+      redirect_to("manage_content.php");
     } else {
       // Failure
-      $_SESSION["message"] = "Page update failed.";
+      $_SESSION["failure"] = "Page update failed.";
     }  
   }
 }
@@ -66,10 +66,8 @@ if (isset($_POST['submit'])) {
         </ol>
         <!-- Main content -->
         <section class="content">
-          <?php if (!empty($message) || !empty($_SESSION["message"])) {
-          echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" .  message() . "</div>";
-          }?> 
           <?php echo form_errors($errors); ?>
+		  <?php echo messages(); ?>
           <div class="row">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
               <div class="box box-info">

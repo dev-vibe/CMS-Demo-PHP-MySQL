@@ -4,7 +4,7 @@
 <?php confirm_logged_in(); ?>
 <?php $layout_context = "admin"; ?>
 <?php include("../includes/layouts/header.php"); ?>
-<?php find_selected_page(true); ?>   
+<?php find_selected_page(false); ?>   
       <!-- Left side column. contains the logo and sidebar -->
       <?php echo admin_navigation(1); ?>
       <!-- Content Wrapper. Contains page content -->
@@ -18,15 +18,14 @@
             <li class="active">Manage Content</li>
             <?php } ?>
         </ol>
-        <?php if (!empty($message) || !empty($_SESSION["message"])) {
-          echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" .  message() . "</div>";
-        }?>   
+      <!-- show SESSION messages for redirects to this page instead of form_errors() because no forms on page -->
+      <?php echo messages(); ?>
       <!-- Main content -->
       <section class="content">
         <!-- Content Header (Page header) -->       
         <div class="row">
           <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <h2>Manage Content <a class="pull-right" href="create_subject.php"><button class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"></i> New Subject</button></a></h2>
+            <h2>Manage Content <a class="pull-right" href="new_subject.php"><button class="btn btn-block btn-success btn-sm"><i class="fa fa-plus"></i> New Subject</button></a></h2>
             
           </div>
         </div>

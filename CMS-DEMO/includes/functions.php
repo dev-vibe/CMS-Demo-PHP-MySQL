@@ -22,20 +22,19 @@
 	function form_errors($errors=array()) {
 		$output = "";
 		if (!empty($errors)) {
-		  $output .= "<div class=\"error\">";
-		  $output .= "Please fix the following errors:";
-		  $output .= "<ul>";
 		  foreach ($errors as $key => $error) {
-		    $output .= "<li>";
+		    $output .= "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">
+		    	<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+		    	<span aria-hidden=\"true\">&times;</span></button>";
 				$output .= htmlentities($error);
-				$output .= "</li>";
+				$output .= "</div>";
 		  }
-		  $output .= "</ul>";
-		  $output .= "</div>";
 		}
 		return $output;
 	}
-	
+//----------------------------------------------------------
+//---------------------Search Functions---------------------
+//----------------------------------------------------------	
 	function find_all_subjects($public=true) {
 		global $connection;
 		
@@ -184,7 +183,9 @@
 			$current_page = null;
 		}
 	}
-
+// ---------------------------------------------------------
+//--------------Component Generating Functions--------------
+//----------------------------------------------------------
 	function make_subject_chart() {
 		$subject_set = find_all_subjects(false);
 		$output = "";
@@ -355,7 +356,9 @@
           </div>";
 		return $output;
 	}
-
+// ---------------------------------------------
+//--------------Password Functions--------------
+//----------------------------------------------
 	function password_encrypt($password) {
   	$hash_format = "$2y$10$";   // Tells PHP to use Blowfish with a "cost" of 10
 	  $salt_length = 22; 					// Blowfish salts should be 22-characters or more

@@ -41,12 +41,11 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
       // Success
-      $_SESSION["message"] = "Page created.";
+      $_SESSION["success"] = "Page created.";
       redirect_to("manage_content.php");
     } else {
       // Failure
-      $_SESSION["message"] = "Page creation failed.";
-      redirect_to("new_page.php?subject=" . urlencode($current_subject["id"]) );
+      $_SESSION["failure"] = "Page creation failed.";
     }
   }
 }
@@ -67,10 +66,8 @@ if (isset($_POST['submit'])) {
         </ol>
         <!-- Main content -->
         <section class="content">
-          <?php if (!empty($message) || !empty($_SESSION["message"])) {
-          echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" .  message() . "</div>";
-          }?> 
           <?php echo form_errors($errors); ?>
+		  <?php echo messages(); ?>
           <div class="row">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
               <div class="box box-info">

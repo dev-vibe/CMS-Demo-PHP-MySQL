@@ -38,7 +38,7 @@ function validate_max_lengths($fields_with_max_lengths) {
 	foreach($fields_with_max_lengths as $field => $max) {
 		$value = trim($_POST[$field]);
 	  if (!has_max_length($value, $max)) {
-	    $errors[$field] = fieldname_as_text($field) . " is too long";
+	    $errors[$field] = fieldname_as_text($field) . " is too long. Maximum of ". $max . " characters allowed." ;
 	  }
 	}
 }

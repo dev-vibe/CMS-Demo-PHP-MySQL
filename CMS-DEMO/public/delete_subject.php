@@ -12,7 +12,7 @@
 	
 	$pages_set = find_pages_for_subject($current_subject["id"], false);
 	if (mysqli_num_rows($pages_set) > 0) {
-		$_SESSION["message"] = "Can't delete a subject with pages.";
+		$_SESSION["failed"] = "Can't delete a subject with pages.";
 		redirect_to("manage_content.php?subject={$current_subject["id"]}");
 	}
 	
@@ -22,11 +22,11 @@
 
 	if ($result && mysqli_affected_rows($connection) == 1) {
 		// Success
-		$_SESSION["message"] = "Subject deleted.";
+		$_SESSION["success"] = "Subject deleted.";
 		redirect_to("manage_content.php");
 	} else {
 		// Failure
-		$_SESSION["message"] = "Subject deletion failed.";
+		$_SESSION["failure"] = "Subject deletion failed.";
 		redirect_to("manage_content.php?subject={$id}");
 	}	
 ?>

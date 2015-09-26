@@ -25,30 +25,8 @@
           Development - The way you want it
         </div>
         <!-- Default to the left -->
-        <strong>Copyright <?php echo date("Y"); ?> <a href="#">TLCode</a>.</strong> All rights reserved.
+        <strong>Copyright <?php echo date("Y"); ?> <a href="#">TLCode</a>.</strong>
       </footer>
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <div class="tab-content">
-          <!-- Home tab content -->
-          <div class="tab-pane active" id="control-sidebar-home-tab">
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="logout.php">
-                  <i class="menu-icon fa fa-lock bg-yellow"></i>
-                  <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Logout of admin section</h4>
-                  </div>
-                </a>
-              </li>
-         
-            </ul>
-          </div><!-- /.tab-pane -->
-        </div>
-      </aside><!-- /.control-sidebar -->
-      <!-- Add the sidebar's background. This div must be placed
-           immediately after the control sidebar -->
-      <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->

@@ -18,9 +18,7 @@
         </ol>
         <!-- Main content -->
         <section class="content">
-        <?php if (!empty($message) || !empty($_SESSION["message"])) {
-          echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" .  message() . "</div>";
-        }?>
+		<?php echo messages(); ?>
         <!-- Content Header (Page header) -->
         <section class="content-header">
         <h2>Manage Admins</h2>

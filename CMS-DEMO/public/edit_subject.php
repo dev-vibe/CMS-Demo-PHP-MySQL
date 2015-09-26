@@ -22,8 +22,7 @@ if (isset($_POST['submit'])) {
 	$fields_with_max_lengths = array("menu_name" => 30);
 	validate_max_lengths($fields_with_max_lengths);
 	
-	if (empty($errors)) {
-		
+	if (empty($errors)) {	
 		// Perform Update
 
 		$id = $current_subject["id"];
@@ -41,13 +40,12 @@ if (isset($_POST['submit'])) {
 
 		if ($result && mysqli_affected_rows($connection) >= 0) {
 			// Success
-			$_SESSION["message"] = "Subject updated.";
+			$_SESSION["success"] = "Subject updated.";
 			redirect_to("manage_content.php");
 		} else {
 			// Failure
-			$message = "Subject update failed.";
+			$_SESSION["failure"] = "Subject update failed.";
 		}
-	
 	}
 }// end: if (isset($_POST['submit']))
 ?>
@@ -68,12 +66,8 @@ if (isset($_POST['submit'])) {
         <!-- Main content -->
         <section class="content">
 		<!-- alert messages	 -->
-        <?php // $message is just a variable, doesn't use the SESSION
-			if (!empty($message)) {
-				echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" . htmlentities($message) . "</div>";
-			}
-		?>
 		<?php echo form_errors($errors); ?>
+		<?php echo messages(); ?>
 		<div class="row">
 		    <div class="col-xs-12 col-md-8 col-md-offset-2">
 			    <div class="box box-info">
@@ -139,7 +133,7 @@ if (isset($_POST['submit'])) {
           Development - The way you want it
         </div>
         <!-- Default to the left -->
-        <strong>Copyright <?php echo date("Y"); ?> <a href="#">TLCode</a>.</strong> All rights reserved.
+        <strong>Copyright <?php echo date("Y"); ?> <a href="#">TLCode</a>.</strong> 
       </footer>
     </div><!-- ./wrapper -->
       <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -149,4 +143,3 @@ if (isset($_POST['submit'])) {
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/test.js"></script>
     <?php include("../includes/layouts/footer.php"); ?>
-

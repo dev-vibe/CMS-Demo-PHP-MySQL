@@ -30,9 +30,7 @@ if (isset($_POST['submit'])) {
       $_SESSION["message"] = "Username/password not found.";
     }
   }
-} else {
-  // This is probably a GET request
-} // end: if (isset($_POST['submit']))
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +62,6 @@ if (isset($_POST['submit'])) {
         <a href="index.php"><b>TLC</b>ode</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <?php echo message(); ?>
         <?php echo form_errors($errors); ?>
         <p class="login-box-msg">Sign in to start your session</p>
         <form action="login.php" method="post">

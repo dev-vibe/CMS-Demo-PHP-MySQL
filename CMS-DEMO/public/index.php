@@ -1,7 +1,6 @@
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/db_connection.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-
 <?php $layout_context = "public"; ?>
 <?php include("../includes/layouts/header.php"); ?>
 <?php find_selected_page(true); ?>    
@@ -10,7 +9,7 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel (optional) -->
-		  <?php if (logged_in()) { echo userPanel(); } ?>
+		  <?php if (logged_in()) { echo add_user_panel(); } ?>
           <!-- Sidebar Menu -->
           <?php echo public_navigation($current_subject, $current_page); ?>
           <!-- /.sidebar-menu -->

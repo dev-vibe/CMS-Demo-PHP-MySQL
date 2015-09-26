@@ -15,11 +15,11 @@
 
   if ($result && mysqli_affected_rows($connection) == 1) {
     // Success
-    $_SESSION["message"] = "Page deleted.";
+    $_SESSION["success"] = "Page deleted.";
     redirect_to("manage_content.php");
   } else {
     // Failure
-    $_SESSION["message"] = "Page deletion failed.";
-    redirect_to("manage_content.php?page={$id}");
+    $_SESSION["failure"] = "Page deletion failed.";
+    redirect_to("manage_content.php");
   } 
 ?>

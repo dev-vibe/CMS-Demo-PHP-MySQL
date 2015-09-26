@@ -30,11 +30,11 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
       // Success
-      $_SESSION["message"] = "Admin created.";
+      $_SESSION["success"] = "Admin created.";
       redirect_to("manage_admins.php");
     } else {
       // Failure
-      $_SESSION["message"] = "Admin creation failed.";
+      $_SESSION["failure"] = "Admin creation failed.";
     }
   }
 }
@@ -52,9 +52,7 @@ if (isset($_POST['submit'])) {
         <!-- Main content -->
         <section class="content">
         <!-- alert messages  -->
-        <?php if (!empty($message) || !empty($_SESSION["message"])) {
-          echo "<div class=\"alert alert-warning alert-dismissible\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" .  message() . "</div>";
-        }?> 
+		<?php echo messages(); ?>
         <?php echo form_errors($errors); ?>
           <div class="row">
             <div class="col-xs-12 col-md-8 col-md-offset-2">
