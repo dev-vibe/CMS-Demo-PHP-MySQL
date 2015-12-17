@@ -4,6 +4,11 @@ CMS demo with a front-end to display content and a working admin interface. Back
 
 <a href="http://cmsdemo.tlcode.com" target="_blank">![alt text](http://www.tlcode.com/lab/images/demobtn.jpg "See Demo")</a>
 
+**username**: demo
+
+**password**: demo
+
+
 
 Thanks to *AdminLTE* for the opensource admin theme.
 
